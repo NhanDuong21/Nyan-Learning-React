@@ -199,7 +199,7 @@ Promise.all([promise1, promise2]).then((value) => {
   console.log(value);
 });
 
-cách viết khác của promise là async/await (cleaner syntax)
+//cách viết khác của promise là async/await (cleaner syntax)
 function promise1() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
