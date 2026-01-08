@@ -40,6 +40,19 @@ Yêu cầu:
     In "Success" nếu thành công
     In "Fail" nếu thất bại
  */
+let randomNumber = new Promise((resolve, reject) => {
+  let randomNum = Math.random(0, 1);
+  if (randomNum < 0.7) {
+    console.log(randomNum);
+    resolve("Success");
+  } else {
+    reject("Fail");
+  }
+});
+
+randomNumber
+  .then((result) => console.log(result))
+  .catch((errror) => console.log(errror));
 
 /**
  * Bài 3: Đoán kết quả (hay ra kiểm tra)
