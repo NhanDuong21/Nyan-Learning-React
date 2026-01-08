@@ -65,6 +65,8 @@ new Promise(resolve => {
 }).then(result => console.log(result));
 
 console.log("C");
+
+====> cai nay ra C truoc roi 1s sau ra B
  */
 
 /**
@@ -83,6 +85,14 @@ In kết quả cuối cùng
 📌 Kết quả mong đợi: 13
  */
 
+let promiseThenToThen = new Promise((resolve) => {
+  resolve(5);
+});
+
+promiseThenToThen
+  .then((resolve1) => resolve1 * 2)
+  .then((resolve2) => resolve2 + 3)
+  .then((result) => console.log(result));
 /**
  * Bài 5: Chuyển Promise sang async/await
 
@@ -104,6 +114,19 @@ Gọi getData()
 In kết quả ra console
  */
 
+function getData() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Data loaded");
+    }, 1500);
+  });
+}
+
+async function getDataa() {
+  let result = await getDataa();
+  console.log(result);
+}
+getData();
 /**
  * Bài 6: Bắt lỗi với async/await
 
@@ -117,6 +140,24 @@ Reject "Something went wrong"
 
 In lỗi ra console
  */
+
+function setTimeoutPromise() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      reject("Something went wrong");
+    }, 1000);
+  });
+}
+
+async function handleError() {
+  try {
+    await setTimeoutPromise();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+handleError();
 
 /**
  * Bài 7: Đoán kết quả
